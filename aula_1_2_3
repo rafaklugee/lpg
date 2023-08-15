@@ -1,0 +1,194 @@
+//aula 1
+#include <stdio.h> //#include eh diretiva de compilação, usada para permitir funções específicas
+
+int main(int argc, char *argv[]/*Parametros*/) {
+    
+    //aqui vai o código
+    //unsigned int y; -> vai até 4bi postitivo
+    //int x; -> 16bits ou 32 bits
+    //long int z; -> 32bits
+    //long long int k; -> 64bits "%lld"
+    //scanf() -> entrada via teclado
+    //printf() -> saída no console
+    int x;
+    printf("Digite um numero: ");
+    scanf("%d", &x);
+    
+    char k;
+    printf("Digite um caractere: ");
+    /*scanf("%c", &k) não vai funcionar, pois o scanf pegará o enter dado no scanf anterior, pois enter é considerado um caracter. Uma das soluções é:*/ scanf(" %c", &k);
+    /*pois o enter será consumido no espaço.*/
+
+    printf("Voce digitou %d e '%c' (%d)\n", x, k, k);
+
+    //scanf(" %[^\n]s") -> [^\n] significa qualquer coisa menos \n
+    //\x, sendo x um código ASCII qualquer, dentro do printf printará o caracter que você colocou
+    //% indica um tipo de dado e a expressão que vem após deve casar com o tipo indicado na %
+    //\ indica caracter especial.
+    //Para fazer uma divisão passar de inteira para real, basta um operando ser float.
+
+    return 0;
+}
+
+//aula 2
+    //break sai do bloco em que está. Utiliza-se principalmente em loops para sair deles assim que achar o necessário ou em switch case, para sair do switch case.
+    //case 8 ... 15 (8 até 15).
+    //default em switch case seria equivalente a "else".
+
+    #include <stdio.h>
+
+
+    //codigo com switch case, que poderia ser substituido com if else:
+
+    /*int main()
+    {
+        int codigo;
+        printf("Digite um codigo de produto: ");
+        scanf("%i", &codigo);
+        switch (codigo)
+        {
+            case 1:
+                printf("Nao perecivel\n");
+                break;
+            case 2:
+            case 3:
+                printf("Perecivel\n");
+                break;
+            case 8 ... 15:
+                printf("Higiene\n");
+                break;
+            default:
+                printf("Erro!\n");
+                break;
+        }
+        return 0;
+    }*/
+
+
+    //Ler o nome e o sexo de uma pessoa apresentando "Ilmo. Sr." para homem e "Ilma. Sra." para mulher:
+    
+    /*int main()
+    {
+        char nome[30], sexo;
+        printf("Digite o nome: ");
+        scanf("%[^\n]", nome);
+        printf("'f' para feminino");
+        printf(" ou 'm' para masculino: ");
+        scanf(" %c", &sexo);
+        switch (sexo)
+        {
+            case 'f':
+                printf("Ilma. Sra.%s\n", nome);
+                break;
+            case 'm':
+                printf("Ilmo. Sr.%s\n", nome);
+                break;
+            default:
+                printf("Entrada Invalida!\n");
+        }
+    }*/
+
+    //Estruturas de repetição = estruturas de iteração.
+    //while: numero de repetição indeterminado -> sem contador
+    
+    //Cálculo do fatorial:
+
+    /*int main()
+    {
+        int n;
+        printf("Digite um numero: ");
+        scanf("%i", &n);
+        int fat = 1; //Acumulador.
+        while (n > 0)
+        {
+            fat *= n;//-> fat = fat * n; -> Acumula n em fat .
+            n--;//-> n = n - 1; -> Decrementa n.
+        }
+        printf("Fatorial: %i\n", fat);
+        return 0;
+    }*/
+    //ou
+    /*int main()
+    {
+        int n;
+        printf("Digite um numero: ");
+        scanf("%i", &n);
+        int fat = 1;  //Acumulador.
+        int cont = 1; //Contador
+        while (cont <= n)
+        {
+            fat *= cont; //-> fat = fat * cont; -> Acumula cont em fat.
+            cont++;      //-> cont = cont + 1; -> Incrementa cont.
+        }
+        printf("Fatorial de %i: %i\n", n, fat);
+        return 0;
+    }*/
+
+    //for -> para entradas determinadas -> com contador
+    //for (condição inicial "cont = 1"; Booleano "cont <=n"; o que acontece ao final do loop "cont++")
+    //for (inicialização; teste; incremento/decremento)
+
+    /*int main()
+    {
+        int n;
+        printf("Digite um numero: ");
+        scanf("%i", &n);
+        int fat = 1;  //Acumulador.
+        int cont;     //Contador
+        for (cont = 1; cont <= n; cont++)
+        {
+            fat *= cont; //-> fat = fat * cont; -> Acumula cont em fat.
+        }
+        printf("Fatorial de %i: %i\n", n, fat);
+        return 0;
+    }*/
+
+    //do while é melhor para menus ou repetição do programa inteiro
+
+//aula 3
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+/*int main (){
+    int x, i;
+    printf ("Digite um numero: ");
+    scanf ("%i", &x);
+    for (i = 1; i <= x; i++){
+        int cont = 0;
+            if (x % i == 0)
+                cont++;
+    }
+    printf ("%i tem %i divisores\n", x, cont);
+    if (cont == 2)
+        printf ("%i eh primo\n", x);
+    else
+        printf ("%i nao eh primo\n", x);
+
+    return 0;
+}
+*/
+
+int main (int argc, char *argv[]) {
+    int a, b, x;
+    printf ("Digite A: ");
+    scanf ("%d", &a);
+    printf ("Digite B: ");
+    scanf ("%d", &b);
+
+    int cont_p = 0;
+    for (x = a; x <= b; x++){
+        int i, eh_primo = 1; // Verdadeiro, ou seja, assume-se que é primo
+        float r = sqrt( x );
+        for (i = 2; i < r && eh_primo; i++){
+            if (x % i == 0)
+                eh_primo = 0; // Falso, não é primo!
+        }
+        if (eh_primo){
+            cont_p++;
+            printf ("%d : %d\n",cont_p, x);
+        }
+    }
+
+    return 0;
+}
