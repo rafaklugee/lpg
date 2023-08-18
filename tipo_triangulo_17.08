@@ -1,0 +1,34 @@
+#include
+int tipo_triangulo (float x, float y, float z) ;
+
+int main () {
+float x;
+float y;
+float z;
+printf ("Digite os tres lados de um triangulo qq: \n");
+scanf ("%f %f %f", &x, &y, &z);
+int t = tipo_triangulo(x, y, z);
+printf ("O triangulo eh: ");
+
+switch( t ){
+case 1:
+printf ("Equilátero");
+break;
+case 2:
+printf ("Isósceles");
+break;
+case 3:
+printf ("Escaleno");
+break;
+}
+return 0;
+}
+
+int tipo_triangulo (float x, float y, float z) {
+if ((x == y) && (x == z))
+return 1;
+if ((x == y) && (x != z) && (y =! z))
+return 2;
+else
+return 3;
+}
