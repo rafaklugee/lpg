@@ -1,3 +1,7 @@
+/* Faça um programa que le os tres lados de um triangulo e determina o seu tipo
+   Utilize uma função que recebe os três lados e retorna o tipo do triangulo, por exemplo:
+   int tipo_triangulo(float x, float y, float z); */
+
 #include
 int tipo_triangulo (float x, float y, float z) ;
 
