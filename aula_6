@@ -1,0 +1,31 @@
+/*
+RECURSÃO
+Há recursão quando uma função chama ela várias vezes
+As chamadas sucessivas da mesma função tem o efeito equivalente ao processo de repetição.
+É necessário haver um caso base.
+*/
+
+#include <stdio.h>
+int fatorial (int x) ;
+
+int main () {
+    int n;
+    printf ("Digite um numero: ");
+    scanf ("%i", &n);
+    printf ("Valor obtido = %i", fatorial ( n ) );
+}
+
+int fatorial (int x) {
+    if (x == 0) {
+        printf ("[Caso base retorna 1]\n");
+        return 1;
+    }
+    else
+    {
+        printf ("[Calculando fatorial de %d: %d*%d!...]\n", x, x, x-1);
+        int y = fatorial (x - 1);
+        printf ("[Retorno da chamada recursiva: %d! : %d]\n", x-1, y);
+        return x * y;
+
+    }
+}
