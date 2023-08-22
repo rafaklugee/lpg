@@ -4,6 +4,7 @@
 void menu ();
 float serieharmonica (float soma);
 float logaritmo (float soma);
+float leibniz (float soma);
 
 int main () {
 
@@ -18,6 +19,9 @@ int main () {
             break;
         case 2:
             logaritmo(0.0);
+            break;
+        case 3:
+            leibniz (0.0);
             break;
     }
 
@@ -84,5 +88,21 @@ float logaritmo (float soma) {
     troca *= -1;
     }
     printf (" = %f", soma);
+    return soma;
+}
+
+//Exercício 3
+//a)
+float leibniz (float soma) {
+    int termo;
+    int troca = 1;
+    printf("Digite o numero de termos: ");
+    scanf("%i", &termo);
+
+    for (int i = 1; i <= termo; i += 2){
+            soma += (float)troca*4/i;
+            troca *= -1;
+    }
+    printf ("Resultado: %f", soma);
     return soma;
 }
