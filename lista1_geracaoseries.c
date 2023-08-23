@@ -5,6 +5,9 @@ void menu ();
 float serieharmonica (float soma);
 float logaritmo (float soma);
 float leibniz (float soma);
+float nilakantha (float soma);
+float valor_e (float soma);
+float taylor (double soma);
 
 int main () {
 
@@ -22,6 +25,15 @@ int main () {
             break;
         case 3:
             leibniz (0.0);
+            break;
+        case 4:
+            nilakantha (3.0);
+            break;
+        case 5:
+            valor_e (0.0);
+            break;
+        case 6:
+            taylor (0.0);
             break;
     }
 
@@ -104,5 +116,54 @@ float leibniz (float soma) {
             troca *= -1;
     }
     printf ("Resultado: %f", soma);
+    return soma;
+}
+
+//b)
+float nilakantha (float soma) {
+    int termo;
+    int troca = 1;
+    printf("Digite o numero de termos: ");
+    scanf ("%i", &termo);
+    
+    for (int i = 2; i < termo; i += 2){
+        soma += (float)troca*4/(i*(i+1)*(i+2));
+        troca *= -1;
+    }
+    printf ("Resultado: %f", soma);
+    return soma;
+}
+
+//Exercício 4
+float valor_e (float soma) {
+    int termo;
+    printf("Digite o numero de termos: ");
+    scanf ("%i", &termo);
+
+    for (int i = 0; i <= termo; i++){ 
+        float termo2 = 1;
+            for (int j = 1; j <= i; j++) {
+                termo2 *= 1.0/j;
+            }
+        soma += termo2;
+    }
+    printf ("Resultado: %f", soma);
+    return soma;
+}
+
+//Exercício 5
+float taylor (double soma) {
+    double x;
+    int n, i, j;
+    printf ("Digite x e a quantidade de termos n: ");
+    scanf ("%lf%d", &x, &n);
+        for (i = 0; i <= n; i++){
+            double termo = 1;
+                for (j = 1; j <= i; j++){
+                    termo *= x/j;
+                }
+            soma += termo;
+        }
+    printf ("Resultado: %.15lf", soma);
     return soma;
 }
