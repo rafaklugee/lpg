@@ -1,13 +1,17 @@
 // Lista de exercícios - Geração série
 #include <stdio.h>
+#include <math.h>
 
 void menu ();
+int fatorial (int n);
 float serieharmonica (float soma);
 float logaritmo (float soma);
 float leibniz (float soma);
 float nilakantha (float soma);
 float valor_e (float soma);
-float taylor (double soma);
+float taylor (float soma);
+float seno (float soma);
+float cosseno (float soma);
 
 int main () {
 
@@ -34,6 +38,12 @@ int main () {
             break;
         case 6:
             taylor (0.0);
+            break;
+        case 7:
+            seno (0.0);
+            break;
+        case 8:
+            cosseno (0.0);
             break;
     }
 
@@ -133,37 +143,69 @@ float nilakantha (float soma) {
     printf ("Resultado: %f", soma);
     return soma;
 }
+//Calcular fatorial:
+int fatorial (int n) {
+    int fatorial;
+    if ((n == 0) || (n == 1)){
+        fatorial = 1;
+    }
+    for (fatorial = 1; n > 1; n--){
+        fatorial *= n;
+    }
+    return fatorial;
+}
 
 //Exercício 4
 float valor_e (float soma) {
     int termo;
     printf("Digite o numero de termos: ");
     scanf ("%i", &termo);
-
-    for (int i = 0; i <= termo; i++){ 
-        float termo2 = 1;
-            for (int j = 1; j <= i; j++) {
-                termo2 *= 1.0/j;
-            }
-        soma += termo2;
+    for (int i = 0; i < termo; i++){
+        soma += (float)1/fatorial(i);
     }
     printf ("Resultado: %f", soma);
     return soma;
 }
 
 //Exercício 5
-float taylor (double soma) {
-    double x;
-    int n, i, j;
-    printf ("Digite x e a quantidade de termos n: ");
-    scanf ("%lf%d", &x, &n);
-        for (i = 0; i <= n; i++){
-            double termo = 1;
-                for (j = 1; j <= i; j++){
-                    termo *= x/j;
-                }
-            soma += termo;
-        }
-    printf ("Resultado: %.15lf", soma);
+float taylor (float soma) {
+    int termo;
+    int x;
+    printf("Digite x e o numero de termos: ");
+    scanf ("%i%i", &x, &termo);
+    for (int i = 0; i < termo; i++){
+        soma += (float)pow(x,i)/fatorial(i);
+    }
+    printf ("Resultado: %f", soma);
+    return soma;
+}
+
+//Exercício 6
+float seno (float soma) {
+    int termo;
+    int troca = 1;
+    float x;
+    printf("Digite x e o numero de termos: ");
+    scanf ("%f%i", &x, &termo);
+    for (int i = 1; i < termo; i = 2*i+1){
+        soma += (float)troca*pow(x,i)/fatorial(i);
+        troca *= -1;
+    }
+    printf ("Resultado: %f", soma);
+    return soma;
+}
+
+//Exercício 7
+float cosseno (float soma) {
+    int termo;
+    int troca = 1;
+    float x;
+    printf("Digite x e o numero de termos: ");
+    scanf ("%f%i", &x, &termo);
+    for (int i = 1; i < termo; i = 2*i){
+        soma += (float)troca*pow(x,i)/fatorial(i);
+        troca *= -1;
+    }
+    printf ("Resultado: %f", soma);
     return soma;
 }
