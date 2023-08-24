@@ -43,7 +43,7 @@ int main () {
             seno (0.0);
             break;
         case 8:
-            cosseno (0.0);
+            cosseno (1.0);
             break;
     }
 
@@ -183,29 +183,49 @@ float taylor (float soma) {
 //Exercício 6
 float seno (float soma) {
     int termo;
-    int troca = 1;
+    int aux = 1;
+    float somaaux = 1;
     float x;
     printf("Digite x e o numero de termos: ");
     scanf ("%f%i", &x, &termo);
-    for (int i = 1; i < termo; i = 2*i+1){
-        soma += (float)troca*pow(x,i)/fatorial(i);
-        troca *= -1;
+    for (int i = 1; i <= termo; i++) { 
+        for (int j = 1; j <= aux; j++){
+            somaaux *= x/j;
+        }
+        if (i % 2 == 0) {
+            soma -= somaaux;
+        }
+        else {
+            soma += somaaux;
+        }
+        aux += 2;
+        somaaux = 1;
     }
     printf ("Resultado: %f", soma);
-    return soma;
 }
+
+
 
 //Exercício 7
 float cosseno (float soma) {
     int termo;
-    int troca = 1;
+    int aux = 2;
+    float somaaux = 1;
     float x;
     printf("Digite x e o numero de termos: ");
     scanf ("%f%i", &x, &termo);
-    for (int i = 1; i < termo; i = 2*i){
-        soma += (float)troca*pow(x,i)/fatorial(i);
-        troca *= -1;
+    for (int i = 1; i <= termo; i++) { 
+        for (int j = 1; j <= aux; j++){
+            somaaux *= x/j;
+        }
+        if (i % 2 != 0) {
+            soma -= somaaux;
+        }
+        else {
+            soma += somaaux;
+        }
+        aux += 2;
+        somaaux = 1;
     }
     printf ("Resultado: %f", soma);
-    return soma;
 }
