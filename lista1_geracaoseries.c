@@ -14,7 +14,6 @@ float seno (float soma);
 float cosseno (float soma);
 
 int main () {
-
     menu();
     int numero;
     scanf ("%i", &numero);
@@ -46,7 +45,6 @@ int main () {
             cosseno (1.0);
             break;
     }
-
 }
 
 void menu () {
@@ -90,7 +88,6 @@ float logaritmo (float soma) {
     int troca = 1;
     printf("Digite o numero de termos: ");
     scanf("%i", &termo);
-    
     for (int i = 1; i <= termo; i++){
         if (i < termo){
             if (i % 2 != 0) {
@@ -120,7 +117,6 @@ float leibniz (float soma) {
     int troca = 1;
     printf("Digite o numero de termos: ");
     scanf("%i", &termo);
-
     for (int i = 1; i <= termo; i += 2){
             soma += (float)troca*4/i;
             troca *= -1;
@@ -135,7 +131,6 @@ float nilakantha (float soma) {
     int troca = 1;
     printf("Digite o numero de termos: ");
     scanf ("%i", &termo);
-    
     for (int i = 2; i < termo; i += 2){
         soma += (float)troca*4/(i*(i+1)*(i+2));
         troca *= -1;
@@ -143,6 +138,7 @@ float nilakantha (float soma) {
     printf ("Resultado: %f", soma);
     return soma;
 }
+
 //Calcular fatorial:
 int fatorial (int n) {
     int fatorial;
@@ -203,8 +199,6 @@ float seno (float soma) {
     }
     printf ("Resultado: %f", soma);
 }
-
-
 
 //Exercício 7
 float cosseno (float soma) {
