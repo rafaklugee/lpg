@@ -38,6 +38,7 @@ int main () {
             break;
         case 7:
             imparcons_2();
+            break;
     }
 }
 
