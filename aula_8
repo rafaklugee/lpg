@@ -1,0 +1,75 @@
+#include <stdio.h>
+//Aula 8 - Vetores
+
+/*
+- Vetores são variáveis multivaloradas;
+- Variáveis homogêneas: todos os valores têm o mesmo tipo (int, float, char, ...);
+- Vetor é sempre um bloco único na memória e tem seus valores adjacentes entre si;
+- A capacidade do vetor é colocada na declaração;
+- Os valores dos índices são armazenados em uma variável, percorrendo de 0 até capacidade-1;
+*/
+
+/*Caso trivial:
+int main () {
+
+int v[10] = { 0 };
+int i;
+printf ("%p\n\n", v);
+
+char nome1[] = {'R', 'a', 'f', 'a', 'e', 'l'};
+char nome2[] = "Rafael";
+
+
+//for (i = 0; i < 10; i++) {
+//    printf ("Digite o %d valor: ", i + 1);
+//    scanf ("%d", &v[i]);
+//}
+
+
+for (i = 0; i < 10; i++) {
+    printf ("(%p) %d : %d\n", &v[i], i, v[i]);
+}
+
+return 0;
+}
+*/
+
+/*
+int main () {
+    int v[8] = {4, 12, 8, 25, 2, 11, -1, 9};
+    int n = 8, i;
+    int i_menor = 0;
+
+    for (i = 1; i < n; i++){
+        if (v[n] < v[i_menor]){
+            i_menor = i;
+        }
+    }
+    printf ("Menor: %d\n", v[i_menor]);
+    printf ("No índice %d\n", i_menor);
+}
+*/
+
+int main () {
+    int v[8] = {4, 12, 8, 25, 2, 11, -1, 9};
+    int i;
+    int j;
+    int n = 8;
+
+    for (i = 0; i < n - 1; i++){
+        int i_menor = i;
+        for (j = i + 1; j < n; j++){
+            if (v[j] < v[i_menor])
+                i_menor = j;
+        }
+    int aux = v[i];
+    v[i] = v[i_menor];
+    v[i_menor] = aux;
+    }
+
+    for (i = 0; i < n; i++){
+        printf ("Algoritmo ordenado ... %i ...\n", v[i]);
+    }
+
+    return 0;
+}
