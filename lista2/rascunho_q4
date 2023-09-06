@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+int func_impar (int a, int b);
+
+int main () {
+    int x, y;
+    printf ("Digite dois numeros: \n");
+    scanf ("%i", &x);
+    scanf ("%i", &y);
+    func_impar (x, y);
+    
+    return 0;
+}
+
+int func_impar (int a, int b) {
+    int soma = 0;
+    if (a > b) { // 10 > 2
+        for (int i = b; i < a; i++){
+            if (i % 2 == 1)
+                soma++;
+        }
+    }
+    else if (a < b) { // 5 < 20
+        for (int i = a; i < b; i++){
+            if (i % 2 == 1)
+                soma++;
+        }
+    }
+    printf ("A soma eh: %i", soma);
+    
+}
