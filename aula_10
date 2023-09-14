@@ -1,0 +1,39 @@
+//Aula 10 - Busca em vetor: Busca sequencial e binária
+
+//Busca Binária
+#include <stdio.h>
+
+int busca_binaria (int x[], int n, int chave);
+
+int main () {
+    int v[] = {2, 4, 5, 8, 11, 17, 32, 44, 60, 81};
+    int k = 10, chave;
+    printf ("Vetor:\t2\t4\t5\t8\t11\t17\t32\t44\t60\t81\n");
+    printf("Digite o valor a ser buscado: ");
+    scanf("%i", &chave);
+    int indice = busca_binaria(v, k, chave);
+    if(indice == -1)
+    printf("Não encontrado!\n");
+    else
+    printf("Encontrado em %d.\n", indice);
+
+}
+
+int busca_binaria (int x[], int n, int chave) {
+    int ini = 0, fim = n-1, meio;
+    int cont = 0;
+    do {
+        cont++; // Registra a contagem de iterações;
+        meio = (ini + fim) / 2;
+        if ( x[meio] == chave ) {
+            printf ("[Busca executada em %i iteracoes.]\n", cont);
+            return meio;
+        }
+        if ( x[meio] < chave )
+            ini = meio + 1;
+        else
+            fim = meio - 1;
+    } while ( ini <= fim);
+    printf ("[Busca executada em %i iteracoes.]\n", cont);
+    return -1;
+}
