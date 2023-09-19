@@ -1,0 +1,30 @@
+//Aula 11 - Matrizes
+/*
+-Um vetor pode ter múltiplas dimensões
+-Um vetor com 2 ou mais dimensões é uma matriz
+-Em c, uma matriz é implementada como um vetor de vetores
+*/
+
+#include <stdio.h> 
+int main () {
+int i, j;
+int m[i][j];
+int ordem;
+
+printf("Digite a ordem da matriz: \n");
+scanf("%d", &ordem);
+
+for (i = 0; i < ordem; i++) {
+for(j = 0; j < ordem; j++) {
+printf("M[%d][%d] :", i, j);
+scanf("%d", &m[i][j]);
+}
+}
+
+for (i = 0; i < ordem; i++) {
+for (j = 0; j < ordem; j++) {
+printf(" %4d ", m[i][j]);
+}
+printf("\n");
+}
+}
