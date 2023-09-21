@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Funções para vetores
+// FunÃ§Ãµes para vetores
 
 void mostra_vetor( int x[], int k, char nome[] ){
 	int i;
@@ -48,7 +48,7 @@ void gera_valores( int x[], int k, int limite ){
 	int i;
 	srand( time( 0 ) ); // Define a "semente" do rand() como sendo a hora atual
 	for( i = 0 ; i < k ; i++ )
-		x[i] = rand() % limite + 1 ; // Gera um número entre 1 e limite.
+		x[i] = rand() % limite + 1 ; // Gera um nÃºmero entre 1 e limite.
 }
 
 void gera_valores_ordem( int x[], int k, int limite ){
@@ -86,7 +86,7 @@ int busca_binaria( int x[], int n, int chave ){
 	int ini = 0, fim = n-1, meio;
 	int cont = 0;
 	do{
-		cont++; // Registra a contagem de iterações;
+		cont++; // Registra a contagem de iteraÃ§Ãµes;
 		meio = ( ini + fim ) / 2;
 		if( x[meio] == chave ){
 			printf("[Busca executada em %d iteracoes.]\n", cont);
@@ -101,7 +101,7 @@ int busca_binaria( int x[], int n, int chave ){
 	return -1;
 }
 
-// Funções para matrizes
+// FunÃ§Ãµes para matrizes
 
 void gera_valores_matriz( int lin, int col, int x[lin][col] ){
 	int i, j;
@@ -160,7 +160,7 @@ float media_pares(int lin, int col, int x[lin][col]) {
 				soma += x[i][j];
 				cont++;
 			}
-	if (cont == 0) // Gambiarra p ñ dar erro! ;-)
+	if (cont == 0) // Gambiarra p Ã± dar erro! ;-)
 		return 0;	
 			
 	return (float) soma / cont;		
