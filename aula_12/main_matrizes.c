@@ -12,7 +12,7 @@
 
 
 int main(int argc, char *argv[]) {
-	//Multiplicação entre matrizes:
+	//MultiplicaÃ§Ã£o entre matrizes:
 	int a[L_A][C_A], b[L_B][C_B], c[L_A][C_B];
 	gera_valores_matriz( L_A, C_A, a );
 	gera_valores_matriz( L_B, C_B, b );
