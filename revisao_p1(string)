@@ -8,12 +8,12 @@ int main () {
     char str[20];
     scanf ("%s", str);
     if (eh_numero(str)) {
-        printf ("'%s'Eh numero!\n", str);
+        printf ("'%s' eh numero!\n", str);
         int x = converte_int (str);
         printf ("X + 1 = %d\n", x+1);
     }
     else
-        printf ("'%s'Nao eh numero!\n", str);
+        printf ("'%s' nao eh numero!\n", str);
 }
 int eh_numero (char s[]) {
     int i;
