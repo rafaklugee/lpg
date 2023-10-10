@@ -16,7 +16,7 @@ int main () {
 }
 void substring (char str[], int ini, int n, char sub[]) {
     int i, j, contador;
-    for (i = ini; contador <= n; i++) {
+    for (i = ini; contador < n; i++) {
         sub[j] = str[i];
         j++;
         contador++;
