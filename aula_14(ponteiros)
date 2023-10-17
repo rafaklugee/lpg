@@ -1,0 +1,45 @@
+// PONTEIROS
+/*
+-Ponteiros são variáveis que guardam um endereço de memória
+-Um ponteiro pode apontas para: uma variável, outro ponteiro, uma área de memória alocada dinamicamente, uma função
+-Tem o endereço e o tipo de dados
+-Operadores: & e *
+-"P aponta para A porque P tem o endereço de A"
+*/
+
+#include <stdio.h>
+void inc (int *x);
+int main () {
+    int a = 5;
+    int *p = &a; // Endereço de a
+    printf ("A = %i\n", *p); // Mostra o valor da variável a
+    printf ("Endereço de A = %d\n", p); // Mostra o endereço da variável a
+    printf ("Endereço de A = %p\n", p); // Mostra o endereço da variável a (em hexa)
+
+    int x, b, c, *p1, *p2;
+    p1 = &x; // endereço de a
+    p2 = &b; // endereço de b
+    *p1 = 3; // x = 3;
+
+    scanf ("%d", p2); // &b (usuário digitou 5)
+    c = *p1 * *p2; // c = x * b
+    printf ("C = %d\n", c); // Mostra c
+
+    //Cuidado na inicialização!
+    int *ini;
+    int n = 5;
+    ini = &n;
+    printf ("Variavel inicializada: %d\n", *ini);
+
+    //Solução: Passagem por referência
+    int k = 1;
+    printf ("%d\n", k);
+    inc (&k);
+    printf ("%d\n", k);                                                                                                                                                                                                                                     
+
+    return 0;
+}
+
+void inc (int *x) {
+    (*x)++;
+}
