@@ -1,0 +1,9 @@
+//PONTEIROS E VETORES - Aritmética de Ponteiros
+/*
+
+-Ponteiros podem ser usados para acessar elementos de um vetor
+-Notação: []
+-[] Significa um acesso a memória a partir do endereço apontado pelo ponteiro
+-Vetores sempre são passados por referência
+-Ponteiros e vetores calculam endereços (mesmos operadores)
+*/
