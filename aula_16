@@ -1,0 +1,39 @@
+//ALOCAÇÃO DINÂMICA DE MEMÓRIA
+/*
+–malloc() : aloca um bloco na memória
+–realloc() : realoca (aumenta ou diminui) um bloco previamente alocado
+–free() : libera a memória alocada dinamicamente
+void * - aponta para qualquer coisa
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+int main () {
+float *p, x;
+p = malloc( sizeof (float) );
+scanf ("%f", p);
+printf ("%f", *p);
+x = *p;
+printf ("end. de x:%d\n", &x);
+printf ("end. alocado:%p\n", p);
+free(p);
+
+return 0;
+}
+*/
+
+int main () {
+    int *p, n, i;
+    printf ("Quantos valores ?");
+    scanf ("%d", &n);
+    p = malloc ( sizeof(int) * n );
+    for (i = 0; i < n; i++) {
+        printf ("P[%d] = ", i);
+        scanf ("%d", p + i); // p[i]
+    }
+    for (i = 0; i < n; i++)
+        printf ("P[%d] : %d\n", i, p[i]);
+
+    free(p);
+}
