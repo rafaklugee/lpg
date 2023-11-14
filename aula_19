@@ -1,0 +1,60 @@
+/*
+Tipos Estruturados
+-Armazenar um conjunto de variáveis dentro de uma única entidade
+-Cadastro de um produto e seus atributos: Código(int), descrição(string), preço(float)
+-Pode-se armazenar valores de tipos diferentes -> heterogênea
+-Sintaxe: struct
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct produto {
+    int codigo;
+    char descricao[20];
+    float preco;
+};
+
+void mostra_produto ( struct produto p );
+void le_produto ( struct produto *x );
+
+int main () {
+    struct produto x;
+
+    printf ("Um produto ocupa %d bytes...\n", sizeof(struct produto));
+
+    x.codigo = 123;
+    strcpy ( x.descricao, "Caneta");
+    x.preco = 10;
+    mostra_produto( x );
+
+    struct produto y;
+
+    y = x;
+
+    mostra_produto ( y );
+
+    le_produto( &y );
+
+    mostra_produto( y );
+
+
+    return 0;
+}
+
+void mostra_produto ( struct produto p ) {
+    printf ("\nCodigo: %d\nDescricao: %s\nPreco: R$%.2f\n",
+                p.codigo, p.descricao, p.preco);
+    printf ("\n");
+}
+
+void le_produto ( struct produto *x ) {
+    printf ("Digite o codigo: ");
+    scanf ("%d", &(*x).codigo );
+    printf ("Digite a descricao: ");
+    scanf (" %[^\n]", x->descricao);
+    printf ("Digite o preco: ");
+    scanf ("%f", &x->preco);
+
+}
