@@ -4,7 +4,7 @@ Tipos Estruturados
 -Cadastro de um produto e seus atributos: Código(int), descrição(string), preço(float)
 -Pode-se armazenar valores de tipos diferentes -> heterogênea
 -Sintaxe: struct
-*/
+*///
 
 #include <stdio.h>
 #include <stdlib.h>
