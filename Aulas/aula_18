@@ -11,8 +11,7 @@ int main(int argc, char *argv[])
 
     char *str = aloca_string( "Digite algo (ou 'sair' para sair): " );
 
-    while ( strcmp( str, "sair" ) != 0 )
-    {
+    while ( strcmp( str, "sair" ) != 0 ) {
         n++;
         lista = realloc( lista, sizeof(char*) * n );
         lista[n-1] = str;
