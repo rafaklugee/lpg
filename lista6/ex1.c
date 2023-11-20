@@ -14,10 +14,8 @@ int main () {
 
     float *resultado = clone (f, n);
     
-    for (i = 0; i < n; i++) {
-        printf ("[%.2f] no endereco: %d\n", *resultado, resultado);
-        resultado++;
-    }
+    for (i = 0; i < n; i++) 
+        printf ("[%.2f] no endereco: %p\n", resultado[i], &resultado + i);
 
     free(resultado);
 
